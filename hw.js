@@ -112,3 +112,27 @@ function matchCheck(thing1, thing2) {
 
 
 console.log(find(nummys, thing).reduce(matchCheck, false));
+
+//////////////// 7. People ////////////////
+
+let people = [
+    {name: 'Larry', phone: '704-829-2903'},
+    {name: 'Adam', phone: '704-8608932'},
+    {name: 'Dave', phone: '70423829-2903'},
+    {name: 'Paul', phone: '704-8333--29-2903'},
+];
+
+
+function whosePhone(guy) {
+    return guy.name + "'s phone number is " + guy.phone;
+}
+
+function phoneValid(dude) {
+    let pass = new RegExp('^[0-9]{3}[- ]*[0-9]{3}[- ]*[0-9]{4}$');
+    if (pass.test(dude.phone)) {
+        return dude
+    }
+}
+
+console.log((people.filter(phoneValid)).map(whosePhone));
+
